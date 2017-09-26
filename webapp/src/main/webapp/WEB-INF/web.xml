@@ -1,0 +1,53 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<web-app id="SpringWebApp">-->
+<web-app id="SpringWebApp" version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd">
+
+    <display-name>Spring Web App</display-name>
+
+    <!-- Look for defined application contexts. Uses /WEB-INF/applicationContext.xml if none is specified. -->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+
+    <!-- Define location(s) and/or name(s) of application context file(s) -->
+    <!-- -->
+    <!-- (root) servlet context(s) shared by all servlets and inherited by Spring application contexts -->
+    <!-- Default name of web -->
+    <!--<context-param>-->
+        <!-- Locations to search for application contexts; separated by comma, semi-colon, space or newline.    -->
+        <!-- If contextConfigLocation is not defined, Spring uses /WEB-INF/applicationContext.xml as a default. -->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>-->
+            <!--classpath:/contexts/servlets/SpringWebApp-servlet.xml-->
+        <!--</param-value>-->
+    <!--</context-param>-->
+    
+    <servlet>
+        <servlet-name>springwebapp</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/contexts/servlets/SpringWebApp-servlet.xml</param-value>
+        </init-param>
+        <!-- Order matters, load-on-startup must come AFTER init-param -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springwebapp</servlet-name>
+        <!-- /* overrides all other servlets, even the default servlet and JSP servlet, not good.    -->
+        <!-- /  doesn't override any other servlet, replaces default servlet for all requests which
+                don't match any other registered servlet, also not good because the default servlet
+                handles many kinds of requests that you probably don't want to write a handler for.  -->
+        <!-- empty url-pattern is invoked when context root is requested.                            -->
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+</web-app>

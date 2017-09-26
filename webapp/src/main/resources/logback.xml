@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <contextName>springwebapp</contextName>
+
+    <!--
+     | Propagate log levels to java.util.logging
+     +-->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!--
+     | Expose the logback configuration via JMX
+     +-->
+    <jmxConfigurator />
+
+    <!--
+     | Specify a local property that sets up the logging directory
+     +-->
+    <!--<property scope="local" name="LOG_DIR" value="${catalina.base}/logs/${CONTEXT_NAME}" />-->
+    <!--<property scope="local" name="LOG_DIR" value="${catalina.base}/logs/" />-->
+
+    <!--
+     | Setup a file based logger that rolls
+     |
+     | http://logback.qos.ch/manual/appenders.html#RollingFileAppender
+     +-->
+    <appender name="LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--
+         | Name of the current log file
+         +-->
+        <!--<File>${LOG_DIR}/${CONTEXT_NAME}.log</File>-->
+        <!--<File>${catalina.base}/logs/${CONTEXT_NAME}.log</File>-->
+        <File>${catalina.base}/logs/springwebapp.log</File>
+
+        <!--
+         | Log message pattern configuration
+         |
+         | http://logback.qos.ch/manual/layouts.html#conversionWord
+         +-->
+        <encoder>
+            <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
+        </encoder>
+
+        <!--
+         | Rolls the log file every 24 hours
+         | gzip the archived log file
+         | Delete archived log files older than 28 days
+         |
+         | http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy
+         +-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/${CONTEXT_NAME}.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <maxHistory>28</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!--
+    | Setup default log level to INFO
+    +-->
+    <root level="INFO">
+        <appender-ref ref="LOG" />
+    </root>
+
+    <!--
+    | Turn up logging for portlet specific package
+    +-->
+
+    <!-- To view and debug exchange messages set DEBUG level. To see wire-line data for protocol messages and greater
+         detail, set debug on org.apache.http.wire -->
+    <!--
+    <logger name="org.apache.http.wire" additivity="false" level="DEBUG">
+        <appender-ref ref="LOG" />
+    </logger>
+    -->
+
+    <!--
+    <logger name="org.springframework.ws" additivity="false" level="DEBUG">
+        <appender-ref ref="LOG" />
+    </logger>
+    -->
+
+    <logger name="org.springframework.web.servlet" additivity="false" level="DEBUG">
+        <appender-ref ref="LOG"/>
+    </logger>
+
+
+</configuration>
