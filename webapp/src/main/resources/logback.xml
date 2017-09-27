@@ -70,11 +70,19 @@
 
     <!-- To view and debug exchange messages set DEBUG level. To see wire-line data for protocol messages and greater
          detail, set debug on org.apache.http.wire -->
-    <!--
-    <logger name="org.apache.http.wire" additivity="false" level="DEBUG">
-        <appender-ref ref="LOGFILE" />
-    </logger>
-    -->
+    <!--<logger name="org.apache.http.wire" additivity="false" level="DEBUG">-->
+        <!--<appender-ref ref="LOGFILE" />-->
+    <!--</logger>-->
+
+    <!-- Apache Commons HttpClient, uses Apache (Jakarta) Commons Logging (jcl-over-slf4j) -->
+    <!--<logger name="org.apache.commons.httpclient" level="DEBUG" additivity="false">-->
+        <!--<appender-ref ref="MYLOGFILE" />-->
+    <!--</logger>-->
+
+    <!-- Apache Commons HttpClient, show raw headers and content -->
+    <!--<logger name="httpclient.wire" level="DEBUG" additivity="false">-->
+        <!--<appender-ref ref="MYLOGFILE" />-->
+    <!--</logger>-->
 
     <!--
     <logger name="org.springframework.ws" additivity="false" level="DEBUG">
