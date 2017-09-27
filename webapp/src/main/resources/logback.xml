@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration scan="true" scanPeriod="30 seconds">
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
 
     <contextName>springwebapp</contextName>
 
     <!--
      | Propagate log levels to java.util.logging
      +-->
-    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
-        <resetJUL>true</resetJUL>
-    </contextListener>
+    <!--<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">-->
+        <!--<resetJUL>true</resetJUL>-->
+    <!--</contextListener>-->
 
     <!--
      | Expose the logback configuration via JMX
@@ -82,9 +82,9 @@
     </logger>
     -->
 
-    <logger name="org.springframework.web.servlet" additivity="false" level="DEBUG">
-        <appender-ref ref="LOG"/>
-    </logger>
+    <!--<logger name="org.springframework.web.servlet" additivity="false" level="DEBUG">-->
+        <!--<appender-ref ref="LOG"/>-->
+    <!--</logger>-->
 
 
 </configuration>

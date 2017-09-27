@@ -18,7 +18,6 @@ public class MainController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex(HttpServletRequest request, HttpServletResponse response) {
 
