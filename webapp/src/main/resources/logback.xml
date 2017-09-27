@@ -27,7 +27,7 @@
      |
      | http://logback.qos.ch/manual/appenders.html#RollingFileAppender
      +-->
-    <appender name="LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--
          | Name of the current log file
          +-->
@@ -61,7 +61,7 @@
     | Setup default log level to INFO
     +-->
     <root level="INFO">
-        <appender-ref ref="LOG" />
+        <appender-ref ref="LOGFILE" />
     </root>
 
     <!--
@@ -72,18 +72,22 @@
          detail, set debug on org.apache.http.wire -->
     <!--
     <logger name="org.apache.http.wire" additivity="false" level="DEBUG">
-        <appender-ref ref="LOG" />
+        <appender-ref ref="LOGFILE" />
     </logger>
     -->
 
     <!--
     <logger name="org.springframework.ws" additivity="false" level="DEBUG">
-        <appender-ref ref="LOG" />
+        <appender-ref ref="LOGFILE" />
     </logger>
     -->
 
     <logger name="org.springframework.web.servlet" additivity="false" level="DEBUG">
-        <appender-ref ref="LOG"/>
+        <appender-ref ref="LOGFILE"/>
+    </logger>
+
+    <logger name="org.la.sample.webapp.controllers" additivity="false" level="INFO">
+        <appender-ref ref="LOGFILE"/>
     </logger>
 
 

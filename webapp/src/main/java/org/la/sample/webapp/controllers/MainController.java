@@ -3,8 +3,6 @@ package org.la.sample.webapp.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,13 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-    private static final Logger log = LoggerFactory.getLogger(MainController.class);
-
+//    private static final Logger log = LoggerFactory.getLogger(MainController.class);
+    private static final java.util.logging.Logger jullog = java.util.logging.Logger.getLogger(MainController.class.getName());
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex(HttpServletRequest request, HttpServletResponse response) {
 
-        log.info("Show index page...");
+//        log.info("Show index page...");
+        jullog.info("jullog show index page...");
 
         ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
