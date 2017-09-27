@@ -9,3 +9,8 @@ mvn clean package
 ```
 
 Copy the springwebapp.war file to the Tomcat /webapps directory to deploy it.
+
+## Branches
+
+### logging-jul
+Demonstrate bridging legacy java.util.logging to Logback.
