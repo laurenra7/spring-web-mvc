@@ -1,5 +1,7 @@
 package org.la.sample.webapp.controllers;
 
+import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-    private static final java.util.logging.Logger jullog = java.util.logging.Logger.getLogger(MainController.class.getName());
+    private static final Logger jullog = java.util.logging.Logger.getLogger(MainController.class.getName());
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex(HttpServletRequest request, HttpServletResponse response) {
