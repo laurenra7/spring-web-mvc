@@ -27,5 +27,9 @@
           p:prefix="/WEB-INF/views/jsp/"
           p:suffix=".jsp" />
 
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="alwaysUseFullPath" value="true"/>
+    </bean>
+
 
 </beans>

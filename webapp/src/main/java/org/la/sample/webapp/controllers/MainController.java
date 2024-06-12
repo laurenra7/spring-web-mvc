@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -21,9 +22,10 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showIndex(HttpServletRequest request, HttpServletResponse response) {
 
-        log.info("Show index page...");
+        log.info("Show index page stuff...");
 
         ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
     }
+
 }

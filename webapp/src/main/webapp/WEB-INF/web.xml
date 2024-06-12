@@ -47,7 +47,7 @@
                 don't match any other registered servlet, also not good because the default servlet
                 handles many kinds of requests that you probably don't want to write a handler for.  -->
         <!-- empty url-pattern is invoked when context root is requested.                            -->
-        <url-pattern></url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>
