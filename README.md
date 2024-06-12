@@ -10,6 +10,17 @@ mvn clean package
 
 Copy the springwebapp.war file to the Tomcat /webapps directory to deploy it.
 
+## Use
+
+Try these endpoints:
+
+{server-root}/springwebapp
+
+{server-root}/springwebapp/status
+
+{server-root}/springwebapp/sample/json
+
+
 ## Branches
 
 ### logging-jul
